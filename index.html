@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedrosa Excercise 9 - Rock-Paper-Scissors Game</title>
+  </head>
+  <body>
+    <input
+      type="button"
+      id="rock"
+      value="rock"
+      placeholder="Rock"
+      onclick="choiceRock()"
+    />
+    <input
+      type="button"
+      id="paper"
+      value="paper"
+      placeholder="Paper"
+      onclick="choicePaper()"
+    />
+    <input
+      type="button"
+      id="scissors"
+      value="scissors"
+      placeholder="Scissors"
+      onclick="choiceScissors()"
+    />
+    <input
+      type="button"
+      id="botchoice"
+      value="bot choice"
+      placeholder="bot choice"
+      onclick="botChoices()"
+    />
+
+    <script>
+      loseCount = 1;
+      tieCount = 1;
+      winCount = 1;
+
+      function choiceRock() {
+        let playerChoice = document.getElementById("rock").value;
+        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
+        if (randomChoice >= 1 && randomChoice <= 33) {
+          botChoice = "rock";
+          alert("Its a tie " + tieCount);
+          tieCount++;
+        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          botChoice = "paper";
+          alert("You Lose " + loseCount);
+          loseCount++;
+        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          botChoice = "scissors";
+          alert("You Win! " + winCount);
+          winCount++;
+        }
+      }
+
+      function choicePaper() {
+        let playerChoice = document.getElementById("paper").value;
+        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
+
+        if (randomChoice >= 1 && randomChoice <= 33) {
+          botChoice = "rock";
+          alert("You Win! " + winCount);
+          winCount++;
+        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          botChoice = "paper";
+          alert("Its a tie ! " + tieCount);
+          tieCount++;
+        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          botChoice = "scissors";
+          alert("You Lose! " + loseCount);
+          loseCount++;
+        }
+        alert("player :" + playerChoice + " bot :" + botChoice);
+      }
+
+      function choiceScissors() {
+        let playerChoice = document.getElementById("scissors").value;
+        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
+
+        if (randomChoice >= 1 && randomChoice <= 33) {
+          botChoice = "rock";
+          alert("You Lose! " + loseCount);
+          loseCount++;
+        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          botChoice = "paper";
+          alert("You Win! " + winCount);
+          winCount++;
+        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          botChoice = "scissors";
+          alert("Its a tie! " + tieCount);
+          tieCount++;
+        }
+        alert("player :" + playerChoice + " bot :" + botChoice);
+      }
+
+      //   function selectWinner() {
+      //     winCout = "";
+      //     loseCount = "";
+      //     tieCount = "";
+
+      //     switch (selectWinner) {
+      //       case winner: {
+      //         (playerChoice == "rock" && botchoice == "scissors") ||
+      //           (playersChoice == "paper" && botChoice == "rock") ||
+      //           (playerChoice == "scissors" && botChoice == "paper");
+
+      //         alert("You Win");
+      //         winCout++;
+      //       }
+
+      //       case lose: {
+      //         (playerChoice == "rock" && botChoice == "paper") ||
+      //           (playerChoice == "paper" && botChoice == "scissors") ||
+      //           (playerChoice == "Scissors" && botChoice == "rock");
+
+      //         alert("You Lose");
+      //         loseCount++;
+      //       }
+
+      //       case tie: {
+      //         (playerChoice == "rock" && botChoice == "rock") ||
+      //           (playerChoice == "paper" && botChoice == "paper") ||
+      //           (playerChoice == "scissors" && botChoice == "scissors");
+
+      //         alert("its a tie");
+      //         tieCount++;
+      //       }
+      //     }
+      //   }
+    </script>
+  </body>
+</html>
