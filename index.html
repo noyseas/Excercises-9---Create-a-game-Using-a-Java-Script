@@ -4,129 +4,173 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedrosa Excercise 9 - Rock-Paper-Scissors Game</title>
+    <title>Boostrap Forms</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
   </head>
-  <body>
-    <input
-      type="button"
-      id="rock"
-      value="rock"
-      placeholder="Rock"
-      onclick="choiceRock()"
-    />
-    <input
-      type="button"
-      id="paper"
-      value="paper"
-      placeholder="Paper"
-      onclick="choicePaper()"
-    />
-    <input
-      type="button"
-      id="scissors"
-      value="scissors"
-      placeholder="Scissors"
-      onclick="choiceScissors()"
-    />
 
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <div class="container position-absolute">
+      <h1>Rock Paper Scissors game in Javascript</h1>
+      <form action="#" >
+      <div class="row  bg-primary">
+ 
+      
+        <div class="col"style="height: 400px">
+            <h2>Pick your Choice</h2>
+            <div class="col justify-content-center">
+                <img src="rock.png">
+            <input
+            type="button"
+            id="rock"
+            value="rock"
+            placeholder="Rock"
+            onclick="choiceRock()"
+          />
+
+          <img src="paper.png">
+          <input
+            type="button"
+            id="paper"
+            value="paper"
+            placeholder="Paper"
+            onclick="choicePaper()"
+          />
+          <img src="scissors.png">
+          <input
+            type="button"
+            id="scissors"
+            value="scissors"
+            placeholder="Scissors"
+            onclick="choiceScissors()"
+          />
+        </div>
+        </form>
+        </div>
+        <div class="col bg-info " style="height: 400px">
+          <h2>Computers Pick</h2>
+        </div>
+        <div class="col" style=height: 400px"" >
+            <div><h3>Match History</h3>
+            <ul id="gameHistory"></div>
+                <div>Score</div>
+        </div>
+      
+      </div>
+    </div>
+
+
+    </ul>
     <script>
       loseCount = 1;
       tieCount = 1;
       winCount = 1;
+      
 
       function choiceRock() {
         let playerChoice = document.getElementById("rock").value;
-        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
-        if (randomChoice >= 1 && randomChoice <= 33) {
+        let randomChoice = Math.floor(Math.random() * 3); //random
+
+        let list=document.getElementById("gameHistory");
+        let li=document.createElement("li");
+
+        if (randomChoice == 0) {
           botChoice = "rock";
           alert("Its a tie " + tieCount);
+          li.textContent="Rock vs Rock";
+          list.appendChild(li);
           tieCount++;
-        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          match++;
+        } else if (randomChoice == 1) {
           botChoice = "paper";
           alert("You Lose " + loseCount);
+          li.textContent="Rock vs Paper";
+          list.appendChild(li);
           loseCount++;
-        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          match++;
+        } else if (randomChoice == 2) {
           botChoice = "scissors";
           alert("You Win! " + winCount);
+          li.textContent="Rock vs Scissors";
+          list.appendChild(li);
           winCount++;
+          match++;
         }
         alert("player :" + playerChoice + " bot :" + botChoice);
       }
 
       function choicePaper() {
         let playerChoice = document.getElementById("paper").value;
-        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
+        let randomChoice = Math.floor(Math.random() * 3); //random 
+        let list=document.getElementById("gameHistory");
+        let li=document.createElement("li");
 
-        if (randomChoice >= 1 && randomChoice <= 33) {
+        if (randomChoice == 0) {
           botChoice = "rock";
           alert("You Win! " + winCount);
+          li.textContent="Paper vs Rock";
+          list.appendChild(li);
           winCount++;
-        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          match++;
+        } else if (randomChoice == 1) {
           botChoice = "paper";
           alert("Its a tie ! " + tieCount);
+          li.textContent="Paper vs Paper";
+          list.appendChild(li);
           tieCount++;
-        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          match++;
+        } else if (randomChoice == 2) {
           botChoice = "scissors";
           alert("You Lose! " + loseCount);
+          li.textContent="Scissors vs Scissors";
+          list.appendChild(li);
           loseCount++;
+          match++;
         }
         alert("player :" + playerChoice + " bot :" + botChoice);
       }
 
       function choiceScissors() {
         let playerChoice = document.getElementById("scissors").value;
-        let randomChoice = Math.floor(Math.random() * 101); //random 0-100
+        let randomChoice = Math.floor(Math.random() * 3); //random 
+        let list=document.getElementById("gameHistory");
+        let li=document.createElement("li");
 
-        if (randomChoice >= 1 && randomChoice <= 33) {
+        if (randomChoice == 0) {
           botChoice = "rock";
           alert("You Lose! " + loseCount);
+          li.textContent="Scissors vs Rock";
+          list.appendChild(li);
           loseCount++;
-        } else if (randomChoice >= 34 && randomChoice <= 66) {
+          match++;
+        } else if (randomChoice == 1) {
           botChoice = "paper";
           alert("You Win! " + winCount);
+          li.textContent="Scissors vs Paper";
+          list.appendChild(li);
           winCount++;
-        } else if (randomChoice >= 67 && randomChoice <= 100) {
+          match++;
+        } else if (randomChoice == 2) {
           botChoice = "scissors";
           alert("Its a tie! " + tieCount);
+          li.textContent="Scissors vs Scissors";
+          list.appendChild(li);
           tieCount++;
+          match++;
         }
         alert("player :" + playerChoice + " bot :" + botChoice);
       }
-
-      //   function selectWinner() {
-      //     winCout = "";
-      //     loseCount = "";
-      //     tieCount = "";
-
-      //     switch (selectWinner) {
-      //       case winner: {
-      //         (playerChoice == "rock" && botchoice == "scissors") ||
-      //           (playersChoice == "paper" && botChoice == "rock") ||
-      //           (playerChoice == "scissors" && botChoice == "paper");
-
-      //         alert("You Win");
-      //         winCout++;
-      //       }
-
-      //       case lose: {
-      //         (playerChoice == "rock" && botChoice == "paper") ||
-      //           (playerChoice == "paper" && botChoice == "scissors") ||
-      //           (playerChoice == "Scissors" && botChoice == "rock");
-
-      //         alert("You Lose");
-      //         loseCount++;
-      //       }
-
-      //       case tie: {
-      //         (playerChoice == "rock" && botChoice == "rock") ||
-      //           (playerChoice == "paper" && botChoice == "paper") ||
-      //           (playerChoice == "scissors" && botChoice == "scissors");
-
-      //         alert("its a tie");
-      //         tieCount++;
-      //       }
-      //     }
-      //   }
     </script>
   </body>
 </html>
